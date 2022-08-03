@@ -1,0 +1,12 @@
+@import '../../../assets/styles/colors.scss';
+
+.room-list {
+  &__title {
+    font-size: 3.6rem;
+    font-family: Montserrat, Roboto, sans-serif;
+  }
+
+  &__empty {
+    font-size: 1.4rem;
+  }
+}

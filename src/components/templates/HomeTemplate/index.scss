@@ -1,0 +1,84 @@
+@import '../../../assets/styles/colors.scss';
+
+.home {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+
+  &__section {
+    width: 75%;
+    height: 100vh;
+    background-color: $bg-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    background-image: url('../../../assets/icons/treble-clef-background.svg');
+    background-repeat: no-repeat;
+    background-size: 40%;
+  }
+
+  &__wrapper {
+    padding-left: 100px;
+  }
+
+  &__mello {
+    position: absolute;
+    z-index: 9999;
+    bottom: 0;
+    left: 20%;
+  }
+
+}
+
+.room-list {
+  &__section {
+    background-color: $bg-light-color;
+    flex-grow: 100;
+    padding: 2.5%;
+  }
+}
+
+// Small devices
+@media (max-width: 767.98px)
+{
+  .home {
+    flex-direction: column;
+  }
+
+  .hero {
+    &__section {
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+    }
+
+    &__wrapper {
+      padding-left: 30px;
+      padding-top: 60px;
+    }
+
+    &__mello {
+      position: static;
+      margin-top: 60px;
+    }
+
+    &__mello svg {
+      width: 200px;
+      height: auto;
+    }
+  }
+
+  .room-list {
+    &__section {
+      flex-grow: 1;
+      padding: 0 30px 30px 30px;
+    }
+  }
+}
