@@ -9,4 +9,44 @@
   &__empty {
     font-size: 1.4rem;
   }
+
+  .pagination {
+    &__wrapper {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      font-size: 1.4rem;
+    }
+
+    &__active {
+      margin: 0 20px;
+      background: $primary-color;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__active:hover {
+      background-color: $primary-color;
+    }
+
+    &__previous, &__next {
+      cursor: pointer;
+      transition: $color-transition;
+
+      &--hidden {
+        display: none;
+      }
+    }
+
+    &__previous:hover, &__next:hover {
+      color: $primary-color;
+    }
+  }
 }
