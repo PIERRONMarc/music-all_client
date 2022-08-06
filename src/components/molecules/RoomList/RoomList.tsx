@@ -1,5 +1,5 @@
-import RoomItem from '../../atoms/RoomItem';
-import './index.scss';
+import RoomItem from '../../atoms/RoomItem/RoomItem';
+import './RoomList.scss';
 import ReactPaginate from "react-paginate";
 import React from 'react';
 

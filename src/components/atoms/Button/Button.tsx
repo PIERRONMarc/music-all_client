@@ -1,4 +1,4 @@
-import './index.scss';
+import './Button.scss';
 
 interface ButtonProps {
     children: string

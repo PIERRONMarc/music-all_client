@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import RoomList from "./index";
+import RoomList from "./RoomList";
 
 test('render a room list', () => {
     render(<RoomList roomNames={['Red rocks', 'Madison Square Garden']} pageCount={0} onPageChange={() => {}} currentPage={1} />);

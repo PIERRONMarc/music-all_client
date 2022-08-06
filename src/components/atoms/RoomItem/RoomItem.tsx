@@ -1,6 +1,6 @@
 import {ReactComponent as JoinIcon} from './../../../assets/icons/join.svg';
 import {ReactComponent as SuperviserAccount} from './../../../assets/icons/supervisor-account.svg';
-import './index.scss';
+import './RoomItem.scss';
 
 interface RoomItemProps {
     roomName: string

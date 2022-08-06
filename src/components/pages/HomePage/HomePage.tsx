@@ -1,6 +1,6 @@
-import HomeTemplate from "../../templates/HomeTemplate";
-import Hero from "../../molecules/Hero";
-import RoomList from "../../molecules/RoomList";
+import HomeTemplate from "../../templates/HomeTemplate/HomeTemplate";
+import Hero from "../../molecules/Hero/Hero";
+import RoomList from "../../molecules/RoomList/RoomList";
 import { ReactComponent as Mello} from '../../../assets/icons/mello.svg';
 import React, {useState} from "react";
 

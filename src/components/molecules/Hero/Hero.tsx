@@ -1,5 +1,5 @@
-import './index.scss';
-import Button from '../../atoms/Button';
+import './Hero.scss';
+import Button from '../../atoms/Button/Button';
 import { ReactComponent as OnlineMedia} from '../../../assets/icons/online-media.svg';
 
 function Hero() {
