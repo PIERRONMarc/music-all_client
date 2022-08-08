@@ -10,6 +10,24 @@
     font-size: 1.4rem;
   }
 
+  .error {
+    margin: 100px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__text {
+      font-size: 1.6rem;
+      margin-top: 50px;
+    }
+
+    &__icon {
+      width: 80%;
+      height: auto;
+    }
+  }
+
   .pagination {
     &__wrapper {
       display: flex;

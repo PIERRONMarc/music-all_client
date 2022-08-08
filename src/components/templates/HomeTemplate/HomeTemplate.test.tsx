@@ -8,7 +8,12 @@ import { ReactComponent as Mello} from '../../../assets/icons/mello.svg';
 test('render a Hero', () => {
     render(<HomeTemplate
         hero={<Hero />}
-        roomList={<RoomList roomNames={['Red rocks']} onPageChange={()=> {}} pageCount={0} currentPage={0} />}
+        roomList={<RoomList
+            rooms={[{id: '1', name: 'Red rocks'}]}
+            onPageChange={()=> {}}
+            pageCount={0}
+            currentPage={0}
+        />}
         mello={<Mello />}
     />);
 
