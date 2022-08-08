@@ -2,12 +2,14 @@ import './Button.scss';
 
 interface ButtonProps {
     children: string
+    onClick?: () => any
 }
 
 function Button(props: ButtonProps) {
+    const { onClick = () => {} } = props;
     return (
         <>
-            <button className="btn">{props.children}</button>
+            <button className="btn" onClick={onClick}>{props.children}</button>
         </>
     )
 }
