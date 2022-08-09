@@ -27,7 +27,6 @@ function HomePage() {
             .catch(() => setHasRoomListFailedWhileLoading(true));
     }
 
-
     useEffect(() => {
         getAllRooms();
     }, [])
@@ -37,7 +36,10 @@ function HomePage() {
             hero={<Hero />}
             roomList={<RoomList
                 rooms={rooms}
-                onPageChange={(selectedItem) => setCurrentPage(selectedItem.selected + 1)}
+                onPageChange={(selectedItem) => {
+                    setCurrentPage(selectedItem.selected + 1);
+                    getAllRooms();
+                }}
                 pageCount={pageCount}
                 currentPage={currentPage}
                 isLoading={isRoomListLoading}
