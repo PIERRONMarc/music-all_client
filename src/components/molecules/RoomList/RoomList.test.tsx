@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import RoomList from "./RoomList";
 
 test('render a room list', () => {
@@ -54,7 +54,8 @@ test('pagination not displayed if there is only one page', () => {
     expect(screen.queryByRole('button', {name: 'Next page'})).not.toBeInTheDocument();
 });
 
-test('display pagination when more than one page', () => {
+test('display pagination when more than one page and go trough page', () => {
+    const onPageChange = jest.fn();
     render(<RoomList
         rooms={[{
                 id: 'ef26763f9d274480964bcb1be7b97e1d',
@@ -66,12 +67,17 @@ test('display pagination when more than one page', () => {
             }
         ]}
         pageCount={4}
-        onPageChange={() => {}}
+        onPageChange={onPageChange}
         currentPage={1}
     />);
 
+    const nextPageButton = screen.getByRole('button', {name: 'Next page'});
+    expect(nextPageButton).toBeInTheDocument();
     expect(screen.getByRole('button', {name: 'Page 1 is your current page'})).toBeInTheDocument();
-    expect(screen.getByRole('button', {name: 'Next page'})).toBeInTheDocument();
+
+    fireEvent.click(nextPageButton);
+    expect(screen.getByRole('button', {name: 'Page 2 is your current page'})).toBeInTheDocument();
+    expect(onPageChange).toBeCalled();
 });
 
 test('previous button pagination not displayed when current page is first page', () => {
