@@ -1,0 +1,26 @@
+@import '../../../assets/styles/colors.scss';
+
+.btn {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid #0000;
+  padding: 0.975rem 1.35rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: $color-transition;
+  background-color: $primary-color;
+  color: $text-color;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: $primary-dark-color;
+}

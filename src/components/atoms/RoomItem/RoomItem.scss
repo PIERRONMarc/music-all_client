@@ -1,0 +1,48 @@
+@import '../../../assets/styles/colors.scss';
+
+.room-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin: 10px 0 10px 0;
+
+  &__name-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__name {
+    margin: 0 0 0 10px;
+    font-size: 1.4rem;
+    transition: $color-transition;
+  }
+
+  &:hover &__name {
+    color: $primary-color;
+  }
+
+  &__join {
+    width: 17px;
+    height: auto;
+    fill: white;
+    transition: $fill-transition;
+  }
+
+  &__supervisor-account {
+    width: 20px;
+    height: auto;
+    fill: white;
+    transition: $fill-transition;
+  }
+
+  &:hover &__join {
+    fill: $primary-color;
+  }
+
+  &:hover &__supervisor-account {
+    fill: $primary-color;
+  }
+}

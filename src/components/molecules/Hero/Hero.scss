@@ -1,0 +1,46 @@
+@import '../../../assets/styles/colors.scss';
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  &__title {
+    font-family: Montserrat, Roboto, sans-serif;
+    font-size: 9.6rem;
+    font-weight: normal;
+    margin: 0 0 20px 0;
+
+    &--accent {
+      color: $primary-color;
+    }
+  }
+
+  &__description {
+    font-size: 1.4rem;
+    margin: 0 0 40px;
+    width: 75%;
+  }
+
+  &__online-media-icon {
+    position: relative;
+    right: -30px;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .hero {
+    &__online-media-icon {
+      display: none;
+    }
+  }
+}
+
+// Small devices
+@media (max-width: 767.98px) {
+  .hero {
+    &__title {
+      font-size: 6.4rem;
+    }
+  }
+
+}
