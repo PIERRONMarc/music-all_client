@@ -63,7 +63,7 @@ function HomePage() {
         eventSource.onerror = () => eventSource.close();
 
         return () => eventSource.close();
-    })
+    }, [])
 
     return (
         <HomeTemplate
