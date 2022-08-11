@@ -2,7 +2,7 @@ import HomeTemplate from "../../templates/HomeTemplate/HomeTemplate";
 import Hero from "../../molecules/Hero/Hero";
 import RoomList from "../../molecules/RoomList/RoomList";
 import { ReactComponent as Mello} from '../../../assets/icons/mello.svg';
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import RoomService from "../../../services/Api/RoomService";
 import Room from "../../../interfaces/Room";
 import {AddRoomPayload, DeleteRoomPayload} from "../../../interfaces/EventSourceData";
@@ -17,7 +17,7 @@ function HomePage() {
     const [pageCount, setPageCount] = useState<number>(0);
     const [hasRoomListFailedWhileLoading, setHasRoomListFailedWhileLoading] = useState<boolean>(false);
 
-    const getRooms = async () => {
+    const getRooms = useCallback(async () => {
         setHasRoomListFailedWhileLoading(false);
         setIsRoomListLoading(true);
 
@@ -30,12 +30,7 @@ function HomePage() {
         } catch (e) {
             setHasRoomListFailedWhileLoading(true)
         }
-    }
-
-    const updateRooms = (payload: AddRoomPayload | DeleteRoomPayload) => {
-        if (payload.action === 'ADD_ROOM') addRoom(payload.payload);
-        if (payload.action === 'DELETE_ROOM') deleteRoom(payload.payload.name);
-    }
+    }, [currentPage])
 
     const addRoom = (room: Room) => {
         setRooms((rooms: Room[]) => {
@@ -59,11 +54,17 @@ function HomePage() {
         getRooms();
 
         const eventSource = CreateRoomsEventSource();
-        eventSource.onmessage = event => updateRooms(JSON.parse(event.data));
+
+        eventSource.onmessage = event => {
+            const data: AddRoomPayload | DeleteRoomPayload = JSON.parse(event.data);
+            if (data.action === 'ADD_ROOM') addRoom(data.payload);
+            if (data.action === 'DELETE_ROOM') deleteRoom(data.payload.name);
+        };
+
         eventSource.onerror = () => eventSource.close();
 
         return () => eventSource.close();
-    }, [])
+    }, [getRooms])
 
     return (
         <HomeTemplate
